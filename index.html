@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <div class="container flex bg-black">
+
+        <div class="left">
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="logo invert"><img src="assets/logo.svg" alt="logo"></div>
+                <ul>
+                    <li><img class="invert" src="assets/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="assets/search.svg" alt="home">Search</li>
+                </ul>
+            </div>
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading">
+                    <img class="invert" src="assets/playlist.svg" alt="">
+                    <h2>Your library</h2>
+                </div>
+
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privay Policy</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy"><span>Coolies</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="right bg-grey rounded p-1">
+            <div class="header">
+                <div class="nav">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                        fill="none">
+                        <defs />
+                        <path fill="currentColor"
+                            d="M15.445,6.604 C15.283,6.726 14.802,7.09 14.524,7.306 C13.968,7.74 13.229,8.333 12.492,8.973 C11.751,9.616 11.03,10.292 10.499,10.892 C10.234,11.193 10.032,11.457 9.9,11.675 C9.776,11.88 9.751,12.002 9.751,12.002 C9.751,12.002 9.776,12.119 9.9,12.324 C10.032,12.543 10.234,12.807 10.499,13.108 C11.03,13.708 11.751,14.383 12.492,15.026 C13.229,15.666 13.968,16.259 14.524,16.693 C14.802,16.91 15.283,17.273 15.444,17.395 C15.778,17.641 15.85,18.111 15.604,18.445 C15.358,18.778 14.889,18.849 14.555,18.604 L14.553,18.602 C14.383,18.474 13.884,18.097 13.601,17.876 C13.032,17.432 12.271,16.822 11.508,16.159 C10.749,15.5 9.97,14.774 9.375,14.101 C9.079,13.765 8.812,13.425 8.616,13.099 C8.431,12.793 8.25,12.406 8.25,12 C8.25,11.593 8.431,11.206 8.616,10.901 C8.812,10.575 9.079,10.234 9.375,9.899 C9.97,9.226 10.749,8.5 11.508,7.841 C12.271,7.178 13.032,6.568 13.601,6.124 C13.885,5.902 14.384,5.526 14.553,5.398 L14.555,5.396 C14.888,5.151 15.358,5.222 15.604,5.555 C15.85,5.889 15.778,6.358 15.445,6.604 Z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                        fill="none">
+                        <defs />
+                        <path fill="currentColor"
+                            d="M8.557,17.396 C8.719,17.274 9.2,16.91 9.478,16.694 C10.034,16.26 10.773,15.666 11.51,15.027 C12.251,14.384 12.972,13.708 13.502,13.108 C13.768,12.807 13.97,12.543 14.102,12.325 C14.226,12.119 14.251,11.998 14.251,11.998 C14.251,11.998 14.226,11.881 14.102,11.675 C13.97,11.457 13.768,11.193 13.502,10.892 C12.972,10.292 12.251,9.617 11.51,8.973 C10.773,8.334 10.034,7.741 9.478,7.306 C9.2,7.09 8.719,6.726 8.558,6.604 C8.224,6.359 8.152,5.889 8.398,5.555 C8.644,5.222 9.113,5.151 9.447,5.396 L9.449,5.398 C9.618,5.526 10.117,5.903 10.401,6.124 C10.97,6.568 11.731,7.178 12.494,7.841 C13.253,8.5 14.032,9.226 14.627,9.899 C14.923,10.235 15.19,10.575 15.386,10.901 C15.571,11.207 15.752,11.594 15.752,12 C15.752,12.407 15.571,12.793 15.386,13.099 C15.19,13.425 14.923,13.765 14.627,14.101 C14.032,14.774 13.253,15.5 12.494,16.159 C11.731,16.822 10.97,17.432 10.401,17.876 C10.117,18.097 9.618,18.474 9.449,18.602 L9.447,18.604 C9.114,18.849 8.644,18.778 8.398,18.445 C8.152,18.111 8.224,17.642 8.557,17.396 Z" />
+                    </svg>
+                </div>
+                <div class="buttons">
+                    <button class="signup-btn">Sign up</button>
+                    <button class="login-btn">Log in</button>
+                </div>
+            </div>
+
+            <div class="spotify-playlists">
+                <h1>Spotify Playlists</h1>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="play">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    color="#000000" fill="none">
+                                    <defs />
+                                    <path fill="currentColor"
+                                        d="M13.852,6.287 L13.941,6.337 C15.573,7.265 16.857,7.994 17.771,8.662 C18.691,9.334 19.372,10.037 19.616,10.963 C19.795,11.643 19.795,12.357 19.616,13.037 C19.372,13.963 18.691,14.666 17.771,15.339 C16.857,16.006 15.573,16.735 13.941,17.663 L13.852,17.713 C12.275,18.61 11.033,19.315 10.023,19.744 C9.005,20.177 8.077,20.397 7.175,20.141 C6.513,19.953 5.909,19.597 5.424,19.107 C4.764,18.441 4.5,17.522 4.374,16.415 C4.25,15.317 4.25,13.879 4.25,12.05 L4.25,11.95 C4.25,10.121 4.25,8.683 4.374,7.585 C4.5,6.478 4.764,5.559 5.424,4.893 C5.909,4.403 6.513,4.047 7.175,3.859 C8.077,3.603 9.005,3.823 10.023,4.256 C11.033,4.685 12.275,5.391 13.852,6.287 Z M9.436,5.636 C8.514,5.244 7.984,5.189 7.584,5.302 C7.171,5.419 6.794,5.642 6.489,5.949 C6.192,6.249 5.979,6.747 5.865,7.753 C5.751,8.757 5.75,10.11 5.75,12 C5.75,13.89 5.751,15.243 5.865,16.247 C5.979,17.253 6.192,17.751 6.489,18.051 C6.794,18.358 7.171,18.581 7.584,18.698 C7.984,18.811 8.514,18.756 9.436,18.364 C10.357,17.972 11.524,17.311 13.155,16.384 C14.842,15.426 16.05,14.738 16.886,14.127 C17.724,13.515 18.056,13.072 18.165,12.655 C18.278,12.226 18.278,11.774 18.165,11.345 C18.056,10.929 17.724,10.485 16.886,9.873 C16.05,9.262 14.842,8.574 13.155,7.616 C11.524,6.689 10.357,6.028 9.436,5.636 Z" />
+                                </svg>
+
+                        </div>
+                        <img src="songs/cs/cover (1).jpg" alt="">
+                        <h2>Happy Hits!</h2>
+                        <p>Hits to boost your mood and fill you with happiness</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="songs/cs/cover (1).jpg" alt="">
+                        <h2>Happy Hits!</h2>
+                        <p>Hits to boost your mood and fill you with happiness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
