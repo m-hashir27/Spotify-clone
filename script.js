@@ -3,8 +3,14 @@
 async function getSongs() {
 
     // 1. Fetch your JSON file
-    let data = await fetch("./Song list/songs.json")
+    let data;
+    try {
+        data = await fetch("./Song list/songs.json")
                       .then(res => res.json());
+    } catch (err) {
+        console.error("Failed to fetch songs.json:", err);
+        return [];
+    }
 
     // 2. Extract the file paths
     let songs = data.songs.map(song => song.file);
@@ -14,114 +20,54 @@ async function getSongs() {
 
 
 async function main() {
+    let currentSong
     
     // Gets the list of all the songs
     let songs = await getSongs();
-    console.log(songs);
+    // console.log(songs);
+
+    let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
+
+    for (const song of songs) {
+        // Extract the last path segment as the display name (remove any empty segments)
+        const parts = song.split('/').filter(Boolean);
+        const name = parts[parts.length - 1] || song;
+        // Append the name to the list (use insertAdjacentHTML for performance)
+        songUL.insertAdjacentHTML('beforeend', `<li>
+                            <img class="invert" src="assets/music.svg" alt="">
+                            <div class="info">
+                                <div>${name}</div>
+                                <div>Anonymous</div>
+                            </div>
+                            <div class="playnow">
+                                <span>Play Now</span>
+                                <img class="invert" src="assets/play.svg" alt="">
+                            </div>
+                        </li>`);
+    }
 
 
-    //Play the first song
-    var audio = new Audio(songs[1])
-    audio.play()
+    // Prepare the audio element (do not autoplay)
+    var audio = new Audio();
+    // audio.src = songs[1];
+    // // audio.play()   // The audio works fine
+
+    // // Attach play to a user gesture (autoplay without a gesture is blocked by many browsers)
+    // const playButton = document.querySelector(".playmusic") || document.body;
+    // playButton.addEventListener("click", async function onPlayClick() {
+    //     try {
+    //         await audio.play();
+    //     } catch (err) {
+    //         console.error("Playback failed:", err);
+    //     }
+    // });
+
+
+
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
+        console.log(e.querySelector(".info").firstElementChild.innerHTML);
+        
+    })
 }
 
 main()
-
-
-// Path:
-// D:\Websites\clones\spotify clone
-// spotify clone/
-//   index.html
-//   Song list/
-//     songs.json
-//   songs/
-//     Agar tum saath ho/
-//       agar tum sath ho.mp3
-//     Bulleya/
-//       bulleya.mp3
-
-// JSON:
-// {
-//     "songs": [
-//         {
-//             "name": "Agar tum saath ho",
-//             "folder": "Agar tum saath ho",
-//             "file": "songs/Agar tum saath ho/agar tum sath ho.mp3"
-//         },
-//         {
-//             "name": "Bulleya",
-//             "folder": "Bulleya",
-//             "file": "songs/Bulleya/bulleya.mp3"
-//         },
-//         {
-//             "name": "Die with a smile",
-//             "folder": "Die with a smile",
-//             "file": "songs/Die with a smile/Die with a smile.mp3"
-//         },
-//         {
-//             "name": "mast magan",
-//             "folder": "mast magan",
-//             "file": "songs/mast magan/mast magan.mp3"
-//         },
-//         {
-//             "name": "Night changes",
-//             "folder": "Night changes",
-//             "file": "songs/Night changes/Night changes.mp3"
-//         },
-//         {
-//             "name": "pal pal",
-//             "folder": "pal pal",
-//             "file": "songs/pal pal/pal pal.mp3"
-//         },
-//         {
-//             "name": "Taj dar e haram",
-//             "folder": "Taj dar e haram",
-//             "file": "songs/Taj dar e haram/Taj dar e haram.mp3"
-//         },
-//         {
-//             "name": "Tu jane na",
-//             "folder": "Tu jane na",
-//             "file": "songs/Tu jane na/Tu jane na.mp3"
-//         },
-//         {
-//             "name": "wanna be yours",
-//             "folder": "wanna be yours",
-//             "file": "songs/wanna be yours/wanna be yours.mp3"
-//         },
-//         {
-//             "name": "ye tune kia kia",
-//             "folder": "ye tune kia kia",
-//             "file": "songs/ye tune kia kia/ye tune kia kia.mp3"
-//         }
-//     ]
-// }
-
-// JS:
-
-
-// async function getSongs() {
-
-//     // 1. Fetch your JSON file
-//     let data = await fetch("./Song list/songs.json")
-//                       .then(res => res.json());
-
-//     // 2. Extract the file paths
-//     let songs = data.songs.map(song => song.file);
-
-//     return songs
-// }
-
-
-// async function main() {
-    
-//     // Gets the list of all the songs
-//     let songs = await getSongs();
-//     console.log(songs);
-
-
-//     //Play the first song
-//     var audio = new Audio(songs[1])
-//     audio.play()
-// }
-
-// main()
