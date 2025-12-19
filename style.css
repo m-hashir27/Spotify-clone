@@ -223,7 +223,7 @@ body{
 
 .seekbar{
     height: 2px;
-    width: 100%;
+    width: 95%;
     background: black;
     border-radius: 10px;
     position: absolute;
@@ -242,4 +242,18 @@ body{
     transition: left 0.5s;
 }
 
-/* 2:24:49 */
+.songbuttons img{
+    cursor: pointer;
+}
+
+.songinfo, .songtime{
+    color: black;
+    padding: 0 12px;
+}
+
+.abovebar{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 2:45:39 */
