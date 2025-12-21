@@ -11,9 +11,29 @@ body{
     color: white;
 }
 
+.hamburgerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.hamburger{
+    display: none;
+    width: 40px;
+    cursor: pointer;
+}
+
 .left{
     width: 25vw;
     padding: 10px;
+}
+
+.left .close{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 2;
 }
 
 .right{
@@ -85,7 +105,7 @@ body{
     flex-wrap: wrap;
     margin: 30px;
     max-height: 60vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .card{
@@ -222,13 +242,14 @@ body{
 }
 
 .seekbar{
-    height: 2px;
+    height: 4px;
     width: 95%;
     background: black;
     border-radius: 10px;
     position: absolute;
     bottom: 0;
     margin: 6px;
+    cursor: pointer;
 }
 
 .circle{
@@ -254,6 +275,44 @@ body{
 .abovebar{
     display: flex;
     justify-content: space-between;
+    /* margin: 20px 0; */
 }
 
-/* 2:45:39 */
+@media (max-width: 1400px){
+    /* my choice 800px */
+    .left{
+        background-color: black;
+        position: absolute;
+        left: -120%;
+        transition: all 0.3s;
+        z-index: 1;
+        width: 370px;
+    }
+
+    .right{
+        width: 100vw;
+    }
+
+    .playbar{
+        width: calc(100vw - 60px);
+    }
+
+    .seekbar{
+        width: calc(100vw - 75px);
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .card{
+        width: 70vw;
+    }
+
+    .card-container{
+        justify-content: center;
+        margin: 0;
+    }
+}
+
+/* 3:25:10 */
