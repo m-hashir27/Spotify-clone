@@ -339,7 +339,7 @@ body{
 
     .playbar{
         width: calc(100vw - 60px);
-        height: 135px;
+        height: 150px;
         margin-left: -10px;
     }
 
