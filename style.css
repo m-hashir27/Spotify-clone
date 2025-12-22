@@ -34,6 +34,11 @@ body{
     right: 30px;
     top: 30px;
     z-index: 2;
+    opacity: 0;
+}
+
+.close.active{
+    opacity: 1;
 }
 
 .right{
@@ -119,6 +124,11 @@ body{
     background-color: #252525;
     position: relative;
     cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.card:hover{
+    background-color: rgb(30, 30, 30);
 }
 
 .card > * {
