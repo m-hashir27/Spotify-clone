@@ -1,8 +1,9 @@
 let currentSong = new Audio()
+let songs
 
-function secondsToMinutesSeconds(seconds){
-    if (isNaN(seconds) || seconds < 0){
-        return "Invalid Input"
+function secondsToMinutesSeconds(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        return "00:00"
     }
 
     const minutes = Math.floor(seconds / 60)
@@ -27,7 +28,7 @@ async function getSongs() {
     }
 
     // 2. Extract the file paths
-    let songs = data.songs.map(song => song.file);
+    songs = data.songs.map(song => song.file);
 
     return songs
 }
@@ -132,8 +133,8 @@ async function main() {
     }
 
     // Listen for timeupdate event
-    currentSong.addEventListener("timeupdate", ()=> {
-        console.log(currentSong.currentTime ,currentSong.duration);
+    currentSong.addEventListener("timeupdate", () => {
+        console.log(currentSong.currentTime, currentSong.duration);
 
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`
 
@@ -153,15 +154,62 @@ async function main() {
     document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0"
         console.log('ok');
-        
+
     })
-    
+
     // Add an event listener for close button
-    
+
     document.querySelector(".close").addEventListener("click", () => {
         document.querySelector(".left").style.left = "-120%"
         console.log('okay');
-        
+
+    })
+
+    // Add an event listener to previous
+
+    previous.addEventListener("click", () => {
+        console.log('Previous clicked');
+        console.log(currentSong);
+
+        let currentFile = decodeURIComponent(currentSong.src.split("/").slice(-1)[0]);
+        let index = songs.findIndex(song => song.endsWith(currentFile));
+
+        if((index-1) >= 0){
+
+            console.log(songs, index, length);
+            playMusic(songs[index-1])
+        }
+
+
+    })
+
+    // Add an event listener to next
+    next.addEventListener("click", () => {
+        console.log('next clicked');
+
+        let currentFile = decodeURIComponent(currentSong.src.split("/").slice(-1)[0]);
+        let index = songs.findIndex(song => song.endsWith(currentFile));
+
+        if((index+1) < songs.length){
+
+            console.log(songs, index, length);
+            playMusic(songs[index+1])
+        }
+
+    })
+
+    //Add an event to volume
+    let muteVol = document.querySelector(".volume img")
+    document.getElementById("volrange").addEventListener("change", (e)=>{
+        console.log(e, e.target, e.target.value);
+        let num = parseInt(e.target.value)
+        currentSong.volume = num / 100
+        if(num === 0){
+            muteVol.src = "assets/mute.svg"
+        }
+        else{
+            muteVol.src = "assets/volume.svg"
+        }
     })
 
 }
